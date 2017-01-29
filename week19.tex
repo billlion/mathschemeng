@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+\begin{center} 
+{\bf Maths Problems for 2016 | CHEN10072 \\
+Bill Lionheart\\
+ March 2016}
+\end{center}
+
+
+%%---------------------------------------------------------------------------------------
+
+\section*{Week 19}
+
+
+
+\begin{enumerate}
+\item\label{q1193} 
+Solve the following linear ODEs by finding an  integrating factor:
+	\begin{enumerate}
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y\,=\,\exp{(-x)}}$ ; \ \  $y=2\> \mathrm{when} \> x=0$.
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y \cos x\,=\,\cos{x}}$ ; \ \  $y=1\> \mathrm{when} \> x=0$.
+	\item\tough  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,\frac{y}{x}\,=\,\sin{x}}$ ; \ \ $y=0\> \mathrm{when} \>x=0$. (Changed -- it was $y=1$ but that did not work!)
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+{\bf Solution}
+
+\noindent\hrulefill
+
+\begin{enumerate}
+\item $P=1,\, Q= \exp(-x)$. Integrating factor is $R = \exp(x)$.
+\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( x y \right) = x \frac{\mathrm{d}y}{\mathrm{d}x}  +y = x \exp(-x)\]
+and hence
+\[ \exp(x) y = \int \exp(x) \exp(-x) \mathrm{d}x  =  x + C\]
+so that
+\[ y  = (x  +C) \exp(-x). \]
+Substituting $y=2$ when $x=0$ gives
+\[ 2 = C \]
+hence $C=1$ and $y  = (x  + 2)\exp(-x)$.
+
+\item $P=\cos x,\, Q= \cos x$. Integrating factor is $R = \exp(\sin x)$.
+\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( \mathrm{e}^{\sin x} y \right) = \mathrm{e}^{\sin x} \frac{\mathrm{d}y}{\mathrm{d}x}  + \cos x \mathrm{e}^{\sin x} y = \mathrm{e}^{\sin x} \cos x\]
+and hence
+\[ \mathrm{e}^{\sin x}  y = \int \mathrm{e}^{\sin x} \cos x \, \mathrm{d}x  = \mathrm{e}^{\sin x}  + C\]
+so that
+\[ y  = 1 + C \mathrm{e}^{-\sin x}. \]
+Substituting $y=1$ when $x=0$ gives
+\[ 1 = 1+C \]
+hence $C=0$ and $y  = 1$.  In retrospect of course it was obvious $1$ is a solution.
+
+\item $P=1/ x,\, Q= \sin x$. Integrating factor is $R = \exp(\ln x)=x$.
+\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( x y \right) = x \frac{\mathrm{d}y}{\mathrm{d}x}  +  y = x \sin x\]
+and hence
+\[ x y = \int  x \sin x\, \mathrm{d}x  = \sin x-x \cos x  + C\]
+so that
+\[ y  = \frac{\sin x }{x} - \cos x +\frac{C}{x}. \]
+Substituting $y=1$ when $x=0$ gives
+\[ 1 = 1 -1 + C/0 \]
+which is not defined so obviously I made a mistake in the initial conditions. Sorry!  I meant $x=0$, $y=0$ which is $C=0$. Note $(\sin x)/x$ tends to $1$ as $x$ goes to zero as $\sin x$ is approximately $x$ for small $x$.
+\end{enumerate}
+
+
+
+\noindent\hrulefill
+}{}%
+
+\item Let $C$ be concentration of dissolved Oxygen in bioreactor and $C_s$ concentration of dissolved Oxygen at saturation, and $D=C_s-C$ the `deficit'. Let $L$ be the constant Biological Oxygen Demand of organisms in the reactor. The following differential equation is given as a model
+\[ \frac{\mathrm{d} D}{\mathrm{d}t} = k_d L  -k_r D\]
+where $k_d$ and $k_r$ are constants and $t$ is time.
+\begin{enumerate}
+\item What does this equation mean?
+\item Solve the differential equation, assuming $D=D_0$ at $t=0$
+\item What shape is this curve?
+\end{enumerate}	
+
+\ifthenelse{\boolean{mynotes}}{
+
+{\bf Solution}
+
+\noindent\hrulefill
+\begin{enumerate}
+\item Something like: The rate of change of the oxygen deficit consist of the constant biological Oxygen demand and a reaction in which the oxygen concentration is increasing towards saturation. But you are the experts so I expect you can do better!
+\item \[
+D= C \mathrm{e}^{-k_r  t} +\frac{k_d}{k_r} L
+\]
+with $D=D_0$ at $t=0$ we see 
+\[C= D_0 - \frac{k_d}{k_r} L\]
+
+\item Exponentially decreasing for $C>0$ (increasing for $C<0$)  towards steady state solution $k_d L/k_r$.
+\end{enumerate}
+}{}%
+
+\end{enumerate}
+
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+
+%%---------------------------------------------------------------------------------------
+
+\end{document}

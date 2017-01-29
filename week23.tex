@@ -1,0 +1,141 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\diff}{\mathrm{d}}
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\setboolean{mynotes}{true}
+
+\begin{document}
+\begin{center} 
+{\bf Maths Problems for 2013--14 | CHEN10072 \\
+Bill Lionheart\\
+ April 2014}
+\end{center}
+
+\section*{Week 23}
+\hrule
+\smallskip
+
+This EBL really is much more ``enquiry based''. We have n't done 2nd order ODEs yet in the lecture so you get to try some things yourself.
+
+{\em A constant coefficient 2nd order linear ODE is of the form
+$$  a\frac{\diff^2 y}{\diff t^2}  + b \frac{\diff y}{\diff t} +c y = f $$
+where $y(t)$ and $f(t)$ are functions of $t$ and $a\ne 0$. We will concentrate on $f=0$. There are lots of example in HELM 19.3}
+
+\begin{enumerate}
+\item Consider the ODE
+$$  \frac{\diff^2y}{\diff t^2}  + \omega^2 y = 0 $$
+where $\omega$ is a non zero constant.
+\begin{enumerate}
+\item Check that $y(t) = \sin \omega t$ and  $y(t) = \cos \omega t$ both satisfy the ODE.
+\item Check that $y(t) = A \sin \omega t + B \cos \omega t$ is a solution for any $A$ and $B$.
+\end{enumerate}
+
+\item Consider the ODE
+$$  \frac{\diff^2 y}{\diff t^2}  - k^2 y = 0 $$
+where $k$ is a non zero constant.
+\begin{enumerate}
+\item Check that $y(t) = \mathrm{e}^{kt}$ and  $y(t) = \mathrm{e}^{-kt}$ both satisfy the ODE.
+\item Check that $y(t) =A\mathrm{e}^{kt} + B\mathrm{e}^{-kt}$ is a solution for any $A$ and $B$.
+\end{enumerate}
+
+
+\item Consider the ODE
+$$  \frac{\diff^2 y}{\diff t^2}  - \frac{\diff y}{\diff t} -6 y = 0 $$ 
+\begin{enumerate}
+\item Try a solution of the form $y=\mathrm{e}^{kt}$. Show that for it to be a solution we must have $k^2 -k -6=0$
+\item Solve the quadratic and write down two solutions of the ODE.
+\end{enumerate}
+
+{\em The equation for $k$ is called the auxiliary equation and  $y=\mathrm{e}^{kt}$ is called a trial solution}
+
+\item  Find the auxiliary equation for the following ODEs and find the solutions $k$ for these auxiliary equations. Note if there are one or two solutions and if they are real or complex.
+\begin{enumerate}
+\item $$  \frac{\diff^2 y}{\diff t^2}  -9 y = 0 $$ 
+\item $$  \frac{\diff^2 y}{\diff t^2}+  \frac{\diff y}{\diff t} -2 y = 0 $$ 
+\item $$  \frac{\diff^2 y}{\diff t^2}+  2\frac{\diff y}{\diff t} + y = 0 $$ 
+\item $$  \frac{\diff^2 y}{\diff t^2}  +9 y = 0 $$ 
+\end{enumerate}
+
+\item Considering 4(d) above the auxiliary equation tells us the solutions are $\mathrm{e}^{3\mathrm{i}t}$ and $\mathrm{e}^{-3\mathrm{i}t}$.  Using the fact that  $\mathrm{e}^{\mathrm{i}\theta}= \cos \theta + \mathrm{i} \sin\theta$ show that 
+
+$$\mathrm{e}^{3\mathrm{i}t} + \mathrm{e}^{-3\mathrm{i}t} = 2 \cos 3t$$
+
+ and
+
+$$\mathrm{e}^{3\mathrm{i}t} - \mathrm{e}^{-3\mathrm{i}t} = 2\mathrm{i} \sin 3t.$$
+
+{\em In general if we have a solution $ y= C \mathrm{e}^{\beta\mathrm{i}t}  +D \mathrm{e}^{-\beta\mathrm{i}t}$ then $y = A \cos \beta t + B \sin \beta t$ where $A= (C+D)$ and $B = (C-D)/\mathrm{i}$  is also a solution.}
+
+\item In 4(c) we only get one solution $\mathrm{e}^{-t}$. Check that in this case $t\mathrm{e}^{-t}$ is also a solution.
+
+{\em In general if the auxiliary equation has complex roots $k=\alpha \pm \mathrm{i}\beta$ then the real solutions are of the form $y(t)= \mathrm{e}^{\alpha t}\left( A\cos \beta t + B \sin \beta t\right)$ }
+
+\item 
+\begin{enumerate}
+\item Check that the auxiliary equation of
+$\frac{\diff^2 y}{\diff t^2}+ 2 \frac{\diff y}{\diff t} +4 y = 0 $
+has roots $k=-1 \pm \sqrt{3}\mathrm{i}$.
+\item The general solution is going to be $y(t)= \mathrm{e}^{- t}\left( A\cos \sqrt{3} t + B \sin \sqrt{3} t\right)$ check that the special case $y(t)= \mathrm{e}^{- t}\cos \sqrt{3} t $ {\em is} actually a solution.
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{enumerate}
+\vfill\eject
+\end{document}

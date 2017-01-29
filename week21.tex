@@ -1,0 +1,217 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+
+\begin{center} 
+{\bf Maths Problems for 2013--14 | CHEN10072 \\
+Bill Lionheart\\
+ March 2014}
+\end{center}
+
+\section*{Week 21}
+
+ \begin{enumerate}
+\item \label{qdjsode2}
+ Consider a population of bacteria in a confined environment in which no more than 
+ $B$ elements can coexist. We assume that, at the initial time $t=0$, the number of individuals
+ is  much smaller than $B$ and is equal to $y_0$. We also assume that
+ the growth rate of the bacteria is a positive constant  $C$.
+ In this case the rate of change of the population is proportional to the number
+ of existing bacteria, under the restriction that the total number cannot exceed
+ $B$. This is expressed by the differential equation 
+ $${\dif y\over \dif t} = Cy \left( 1-{y\over B}\right),$$
+ whose solution $y=y(t)$ denotes the number of bacteria at time $t$.
+ 
+ \begin{enumerate}
+\item 
+Given some initial population $y_0$ and a  step length of $h$,
+write down the general update formula for computing the forward Euler 
+solution  $y_{n+1}$  from the previous estimate $y_n\approx y(nh)$.
+\item 
+Next, write down the general update formula for computing the {\it implicit} Euler 
+solution  $y^*_{n+1}$  from the previous estimate $y^*_n \approx y(nh)$.
+You should find that this approach requires the solution if a 
+{\it quadratic} equation at every time step.  \end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+
+
+\begin{enumerate}
+	\item
+	Given a numerical estimate $y_n$ at time level $t_n=nh$ the forward Euler 
+	solution $y_{n+1}\approx y(t_{n+1})$ is given by $y_{n+1}=y_n +h f(t_n, y_n)$.
+	In this case $f= Cy \left( 1-{y\over B}\right)$  so we have that
+	$$
+	y_{n+1}=y_n  + C h \, y_n \left( 1-{y_n\over B}\right).
+	$$  
+\item 
+	Given a numerical estimate $y^*_n$ at time level $t_n=nh$ the {\it implicit} Euler 
+	solution $y^*_{n+1}\approx y(t_{n+1})$ is given by $y^*_{n+1}=y^*_n +h f(t_{n+1}, y^*_{n+1})$.
+	In this case $f= Cy \left( 1-{y\over B}\right)$  so we have that
+	$$
+	y^*_{n+1}=y^*_n  + C h \, y^*_{n+1} \left( 1-{y^*_{n+1}\over B}\right).
+	$$  
+	Rearranging this gives a quadratic equation for the solution value $s=y^*_{n+1}$ :
+	$$
+	{Ch\over B} s^2 +(1-Ch) s - y^*_n = 0.
+	$$
+	\end{enumerate}
+ 
+}{}%
+
+
+\item \label{qdjsode3}\tough
+In Biochemistry, a Michaelis--Menten type process involves
+ a substrate $S$, an enzyme $E$, a complex $C$ and a product $P$, and is
+ summarized through the set of  reactions 
+ \begin{eqnarray*}
+S + E &\stackrel{c_1}{\longrightarrow}& C\\
+C  &\stackrel{c_2}{\longrightarrow}& S + E\\
+C &\stackrel{c_3}{\longrightarrow}& P+E.
+\end{eqnarray*}
+In the framework of chemical kinetics, this set of reactions may be interpreted as
+a systems of ODEs as follows
+  \begin{eqnarray*}
+{\dif S\over \dif t}   &= &  -c_1 S E  +c_2\,C\\
+{\dif E\over \dif t}   &= &  -c_1 S E  + (c_2 +c_3) \,C\\
+{\dif C\over \dif t}   &= &  c_1 S E  - (c_2 +c_3) \,C\\
+{\dif P\over \dif t}   &= &  c_3 \,C,
+\end{eqnarray*}
+where  $S(t)$,   $E(t)$,  $C(t)$ and  $P(t)$ denote the concentrations of substrate,
+enzyme, complex and product, respectively,  at time $t$. 
+
+ \begin{enumerate}
+\item 
+Given some initial values $S_0$,   $E_0$,  $C_0$ and  $P_0$ and a step length $h$,
+write down a set of update formulas for computing the forward Euler solution
+ $S_{n+1}$,   $E_{n+1}$,  $C_{n+1}$ and  $P_{n+1}$   from the previous time
+ solution estimates  $S_{n}$,   $E_{n}$,  $C_{n}$ and  $P_{n}$. 
+ \item
+ Next, write down the general update formula for computing the {\it implicit} Euler 
+solution
+$S^*_{n+1}$,   $E^*_{n+1}$,  $C^*_{n+1}$ and  $P^*_{n+1}$   from the previous 
+time solution  estimates.  You will  find that this approach requires the solution of a 
+system of linear equations at every time step.  
+\end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+
+\begin{enumerate}
+	\item
+	Given  numerical estimates $S_{n}$,   $E_{n}$,  $C_{n}$ and  $P_{n}$
+          at time level $t_n=nh$ the forward Euler 
+	solution is given by 
+	\begin{eqnarray*}
+       S_{n+1}   &= &  S_{n} +h( -c_1 S_n E_n  +c_2\,C_n)\\
+       E_{n+1}  &= &   E_{n}  +h(  -c_1 S_n E_n  + (c_2 +c_3) \,C_n)\\
+      C_{n+1}  &= &   C_{n} +h( c_1 S_n E_n  - (c_2 +c_3) \,C_n)\\
+      P_{n+1}   &= &   P_{n}+h  c_3 \,C_n.
+\end{eqnarray*}
+
+\item 
+	Given  numerical estimates $S^*_{n}$,   $E^*_{n}$,  $C^*_{n}$ and  $P^*_{n}$
+          at time level $t_n=nh$  the {\it implicit} Euler solution is given by 
+	\begin{eqnarray*}
+       S^*_{n+1}   &= &  S^*_{n} +h( -c_1 S^*_{n+1} E^*_{n+1}  +c_2\,C^*_{n+1})\\
+       E^*_{n+1}  &= &   E^*_{n}  +h(  -c_1 S^*_{n+1} E^*_{n+1}  + (c_2 +c_3) \,C^*_{n+1})\\
+      C^*_{n+1}  &= &   C^*_{n} +h( c_1 S^*_{n+1} E^*_{n+1}  - (c_2 +c_3) \,C^*_{n+1})\\
+      P^*_{n+1}   &= &   P^*_{n}+h  c_3 \,C^*_{n+1}.
+\end{eqnarray*}
+This is a system of {\it quadratic equations}. 
+Rearranging leads to a linear equation system:	
+\begin{eqnarray*}
+      (1+ h\, c_1 E^*_{n+1} )S^*_{n+1}   - c_2 h \,C^*_{n+1} &= &  S^*_{n} \\
+     (1+ h\, c_1 S^*_{n+1} )  E^*_{n+1}  - h\, (c_2 +c_3) \,C^*_{n+1} &= &   E^*_{n}  \\
+     (h \, c_1 S^*_{n+1}) E^*_{n+1} +  (1  +h\,  c_2 + h\,c_3) C^*_{n+1}  &= &   C^*_{n}   \\
+      -h\,  c_3 \,C^*_{n+1} +   P^*_{n+1}  &= &   P^*_{n} \end{eqnarray*}
+     except that  the coefficient  matrix depends on the unknown values
+$$\left ( \begin{array}{cccc}
+         1+ h  c_1 E^*_{n+1} & 0 &  - c_2 h  & 0 \\
+        0 &  1+ h  c_1 S^*_{n+1}  & - h  (c_2 +c_3) & 0 \\
+        0 & h  c_1 S^*_{n+1} & 1  +h  c_2 + h c_3 & 0 \\
+         0 &  0 &   -h  c_3 &  1 \end{array} \right )
+   \left ( \begin{array}{c}
+         S^*_{n+1} \\ E^*_{n+1} \\ C^*_{n+1} \\   P^*_{n+1} 
+            \end{array} \right) =
+   \left ( \begin{array}{r}
+        S^*_{n} \\ E^*_{n} \\ C^*_{n} \\   P^*_{n} 
+            \end{array} \right) .$$
+To solve this system we would need to use some type of nonlinear iteration. 
+This will require solving systems of linear equations with ``frozen'' 
+matrix coefficients  at every time step. 
+	\end{enumerate}
+ 
+}{}%
+
+
+
+
+
+\end{enumerate}
+\vfill\eject
+\end{document}

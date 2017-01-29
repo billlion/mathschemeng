@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+%\usepackage{mathexam,amssymb,theorem}
+\usepackage{CEASexam,amsfonts}
+\usepackage {amsmath,amssymb}
+
+
+\coursename{Engineering Mathematics 2}
+\examinationdate{Resit  Examination}
+\examinationtime{ August 2012}
+
+\coursecode{CHEN10072}
+\duration{One and a Half  Hours}
+\rubric{Answer {\bf all} parts of  {\bf Section A}
+(40 marks in all)
+        and\\
+        {\bf one} of the two questions in {\bf Section B}
+(10 marks)}
+
+\calculators{\vbox{Electronic calculators may be used, provided that
+they CANNOT store text. \\
+ All numerical working must be shown. }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make uppercase Greek characters italic.
+% Copied from latex.ltx and changed second digit from 0 (roman font)
+% to 1 (math italic).
+\mathchardef\Gamma="7100
+\mathchardef\Delta="7101
+\mathchardef\Theta="7102
+\mathchardef\Lambda="7103
+\mathchardef\Xi="7104
+\mathchardef\Pi="7105
+\mathchardef\Sigma="7106
+\mathchardef\Upsilon="7107
+\mathchardef\Phi="7108
+\mathchardef\Psi="7109
+\mathchardef\Omega="710A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define a few macros specific to this exam and this particular typist.
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bL{\mathbf{L}}
+\def\bU{\mathbf{U}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\dif}{\mathsf{d}}
+
+\begin{document}
+\maketitle
+
+
+
+\section
+\sectionheader{Answer \jazzy{all} questions}
+
+\question
+Given
+  $$\mathbf{u}= \left ( \begin{array}{c} 3t\\ 2 + t^2 \end{array} \right ). $$
+ Find the values of $t$  for which   $\mathbf{u}$ is perpendicular to the vector
+  $\mathbf{v}= \left ( \begin{array}{r} 1\\ 1 \end{array} \right ). $\\
+\marks{2}
+
+\question
+ Let
+\[ \bA \,=\, \left( \begin{array}{rr} -1 &3 \\ 3 &1 \end{array} \right) \quad
+\hbox{and} \quad
+\bB \,=\, \left( \begin{array}{rr} 2 &-1 \\ 0 & 1 \end{array} \right).\]
+
+Compute the following matrices:
+	\begin{enumerate}
+	\item $2\bA+ \bB$.  Is it true that $ 2\bA + \bB= \bB +2 \bA$?
+	\item $\bA^T+  \bB^T$. Is it true that $( \bA + \bB)^T = \bA^T + \bB^T$?
+	\item $\bA \bB$ and $\bB \bA$.    Is it true that $ \bA \bB= \bB \bA$?
+	\item $ \bA^{-1}$.  Is it true that $(\bA ^{-1})^T=  (\bA^T)^{-1}$?
+	\marks{8}
+	\end{enumerate}
+
+
+
+\question
+Evaluate the following  $3\times 3$ determinants:
+ $$  d_1 = \left| \begin{array}{rrr} 1&-2&1 \\ 2 & 3 & -1\\-1&-2&2 \end{array} \right|, \qquad
+	d_2=  \left| \begin{array}{rrr}1 & -2 & 1\\  -1& -2 &2 \\ 2&3&-1 \end{array} \right|. $$ 
+How are  $d_1$ and $d_2$  related and why? 
+
+\noindent
+ [Hint:   use the fact that
+$\hbox{det}(\bA \bB) =  \hbox{det}(\bA) \times \hbox{det}(\bB)$.]
+\marks{4}
+
+\question 
+Given
+\vspace{-0.5cm}
+\begin{eqnarray*}
+x\,+\,y\,+\,z&=&6\\
+x\,-\,y\,+\,3z&=&4\\
+-3x + y\,-\,z&=&-8 .
+\end{eqnarray*}
+            \begin{enumerate}
+            \item Write the system of  equations in the form of $\bA \mathbf{x}=\mathbf{b}$.
+            \item\label{q1207b}  Determine whether or not {\bf A} is singular.  
+            \item  Solve for $x,y,z$ using Gaussian elimination without pivoting.\marks{6}
+    \end{enumerate}
+	
+
+\question
+Solve analytically the following differential equation problem: find $y(x)$ such that
+$$ \frac{\dif y}{\dif x}\,=\,  x (9\,+\,y^2)   ; \qquad y=3\>\hbox{ when }\> x=0. $$
+\noindent
+ [Hint:   use the fact that
+$\displaystyle \int {1 \over a^2+x^2} \, dx= {1\over a} \tan^{-1} {x\over a}$.]
+\marks{4}
+
+\question
+Solve the following problem by finding an  integrating factor:  find $y(x)$ such that
+$$  \frac{\dif y}{\dif x}\,+\, y\cos x = \cos{x}   ; \qquad y=1\>\hbox{ when }\> x=0. $$
+\marks{5}
+
+\question
+Compute a numerical solution to the differential equation problem 
+$$ \frac{\dif y}{\dif t} =  -2 y + t    ; \qquad y=1\>\hbox{ when }\> x=0, $$
+by taking two steps of the forward Euler method with 
+step size $h=0.1$.
+\marks{5}
+
+\question
+Write down  Newton's iteration   for finding the roots of
+a function $f(x)$. Hence or otherwise, 
+determine an iterative method to calculate the square root of a given real 
+number, $\beta$ say. Starting with an initial guess of $x_0 =3$, run the
+iteration and   calculate $\root  \of 10$ correct to  four decimal places.
+\marks{6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION B 
+\section
+\sectionheader{Answer \jazzy{one} of the two questions}
+
+
+\question
+Let $\bA$ represent a general $k\times k$ matrix.
+\begin{enumerate}
+\item 
+Explain as succinctly as possible how  Gaussian Elimination is connected to
+the factorization of $\bA$ into the product of a lower triangular matrix  $\bL$
+and an upper triangular matrix $\bU$.
+ \null\vspace{-0.2cm}  \marks{4}
+
+\item
+Hence or otherwise compute the $\bL\bU$ factorization    of  the following matrix 
+$$ \bA = \left( \begin{array}{cc} -2 &2  \\ 1 & 2 \end{array} \right). $$
+\null\vspace{-0.6cm}
+ \null\vspace{-0.2cm} \marks{2}
+
+ \item
+Describe the process of    Gaussian Elimination  {\it with partial pivoting} and give the main reason
+why including pivoting is  important when solving linear equation systems using 
+a computer.
+ \null\vspace{-0.2cm} \marks{4}
+\end{enumerate}
+
+\medskip
+\question 
+We want to solve the following  linear  {\it  second order} differential equation
+problem: find  $y(t)$ such that
+$$
+{\dif^2 y\over \dif t^2} + 25\,y =0 ; \quad y(0)=0; \>\> {\dif y\over \dif t} (0)=1.
+$$
+
+\begin{enumerate}
+\item
+Show that this problem can be rewritten  as a system of
+first order differential equations, and find the associated initial conditions.
+\null\vspace{-0.2cm} \marks{3}
+
+\item
+ Take a  step size  of $h=0.1$  and 
+compute the first two steps of the  {\it implicit} (Backward) Euler  method
+ so as to approximate $y(0.2)$.  Give a reason why the {\it implicit} Euler 
+ method might be preferable
+ to the  {\it forward} Euler method when solving this problem.
+ \null\vspace{-0.2cm} \marks{7}
+ 
+\end{enumerate}
+
+
+
+\finished
+
+\end{document}

@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\begin{document}
+
+\begin{center} 
+{\bf Week 14 CHEN10072 \\
+Some examples of using MATLAB for checking week 14 problems\\
+ January 2014}
+\end{center}
+
+\begin{verbatim}
+>>% Q1  This is just a comment!
+>> A=[1,2;-2,2] % Note the use of comma and semicolon
+
+A =
+
+     1     2
+    -2     2
+
+>> B=[-3,1;-1,-4]
+
+B =
+
+    -3     1
+    -1    -4
+
+>> A+ 2*B  % Need a * for multiplication
+
+ans =
+
+    -5     4
+    -4    -6
+
+>> A'+B'  %Apostrophe is transpose
+
+ans =
+
+    -2    -3
+     3    -2
+
+>> (A+B)'
+
+ans =
+
+    -2    -3
+     3    -2
+
+>> A*B
+
+ans =
+
+    -5    -7
+     4   -10
+
+>> B*A
+
+ans =
+
+    -5    -4
+     7   -10
+
+>> B'*A'
+
+ans =
+
+    -5     4
+    -7   -10
+
+>> (A*B)'
+
+ans =
+
+    -5     4
+    -7   -10
+
+>> % Q2
+>> A=[1;2;-1]
+
+A =
+
+     1
+     2
+    -1
+
+>> B=[2;-1;0]
+
+B =
+
+     2
+    -1
+     0
+
+>> A*A'
+
+ans =
+
+     1     2    -1
+     2     4    -2
+    -1    -2     1
+
+>> A*A'+eye(3)
+
+ans =
+
+     2     2    -1
+     2     5    -2
+    -1    -2     2
+
+>> det(A*A'+eye(3))
+
+ans =
+
+     7
+
+>> 
+\end{verbatim}
+
+
+
+\hfill {\tiny Last modified  \today}
+
+\end{document}

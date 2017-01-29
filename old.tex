@@ -1,0 +1,730 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+\begin{center} 
+{\bf Maths Problems for 2011--12 | CHEN10072 \\
+David Silvester \\
+17 January 2012}
+\end{center}
+
+\hrule
+\smallskip
+\section*{week 14}
+
+
+
+\begin{enumerate}
+
+\item\label{qdjs1v}
+Given two vectors
+ $$\mathbf{u}= \left ( \begin{array}{r} 2\\ 0 \\ 1 \end{array} \right ) , \quad
+  \mathbf{v}=  \left ( \begin{array}{r} 3\\ 1 \\ -3 \end{array} \right ).$$  
+ \begin{enumerate}
+\item Find the magnitudes of $\mathbf{u}$ and $\mathbf{v}$. 
+\item Find the unit vectors having the same direction as $\mathbf{u}$ and $\mathbf{v}$.
+\item Find the magnitude of $\mathbf{u}+ \mathbf{v}$ and compare it with
+$|\mathbf{u}| + |\mathbf{v}|$.  Explain what you discover and give a reason why.
+\end{enumerate}
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+	
+\item\label{qdjs2v}
+Given two vectors
+ $$\mathbf{u}= \left ( \begin{array}{r} 1\\ -2 \\ 3 \end{array} \right ) , \quad
+      \mathbf{v}=  \left ( \begin{array}{r} 3\\ 1 \\ 1\end{array} \right ).$$  
+Find the dot product $\mathbf{u}\cdot \mathbf{v}$ and the angle
+between  $\mathbf{u}$ and  $\mathbf{v}$. 
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+
+
+\item\label{qdjs3v}
+Given
+  $$\mathbf{u}= \left ( \begin{array}{c} t\\ 2-t^2 \end{array} \right ). $$
+ Find the values of $t$  for which   $\mathbf{u}$ is perpendicular to the vector
+  $\mathbf{v}= \left ( \begin{array}{r} 1\\ -1 \end{array} \right ). $\\
+Can you illustrate your result graphically? 
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+\item\label{qdjs4v}\tough
+Let 
+  $$\mathbf{u}= \left ( \begin{array}{c} u_1\\ u_2\\ u_3 \end{array} \right )$$
+ denote  a general vector in $\R^3$.
+ Show that $\mathbf{u}$ is equal to the zero vector if and only if the 
+ dot product of  $\mathbf{u}$ with itself is zero. Does this 
+ characterization  of the zero vector extend to  vectors $\mathbf{u} \in \R^{10}\,$? 
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+\item\label{qdjs5v}\tough
+Show that, for all vectors $\mathbf{u},  \mathbf{v} \in \R^3$, 
+ \begin{enumerate}
+\item $| \mathbf{u} +   \mathbf{v}|^2 + | \mathbf{u} -   \mathbf{v}|^2 =
+2 | \mathbf{u}|^2 + 2 | \mathbf{v}|^2 .$
+\item $ {1\over 4} \left( | \mathbf{u} +   \mathbf{v}|^2 -  | \mathbf{u} -   \mathbf{v}|^2 \right)=
+\mathbf{u}\cdot \mathbf{v}.$
+ \end{enumerate}
+Do these two results extend to  vectors $\mathbf{u},  \mathbf{v} \in \R^{10}\,$? 
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+\end{enumerate}
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+\section*{week 15}
+\begin{enumerate}
+
+\item\label{q1167} Let
+\[ \bA \,=\, \left( \begin{array}{rr} 1 &2 \\ -2 &2 \end{array} \right) \quad
+\hbox{and} \quad
+\bB \,=\, \left( \begin{array}{rr} -3 &1 \\ -1 &-4 \end{array} \right).\]
+
+Compute the following matrices:
+	\begin{enumerate}
+	\item $\bA+ 2\bB$.  Is it true that $ \bA + 2\bB= 2\bB + \bA$?
+	\item $\bA^T+  \bB^T$. Is it true that $( \bA + \bB)^T = \bA^T + \bB^T$?
+	\item $\bA \bB$ and $\bB \bA$.    Is it true that $ \bA \bB= \bB \bA$?
+	\item $\bB^T \bA^T$.  Is it true that $(\bA \bB)^T= \bB^T \bA^T$?
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\noindent\hrulefill
+
+}{}%
+
+\item\label{qdjsp1}
+A {\it permutation} matrix  $\bP_{ij}$ is generated by interchanging rows (or colums) 
+of an {\it identity} matrix $\bI$, e.g.
+$$  \bP_{12} =  \left ( \begin{array}{ccc}  0 & 1 & 0\\  1 & 0 & 0\\  0 & 0 & 1 \end{array} \right ),  \quad
+  \bP_{13} =  \left ( \begin{array}{ccc}  0 & 0 & 1\\  0 & 1 & 0\\  1 & 0 & 0 \end{array} \right ).  $$
+
+Let $\bA$ be the matrix
+$$  \bA =  \left ( \begin{array}{ccc}  11 & 12 & 13\\  21 & 22 & 23 \\  31 & 32 & 33 \end{array} \right ).$$
+\begin{enumerate}
+\item Compute the products $\bP_{12} \bA$,  $\bP_{13} \bA$,   $\bA\bP_{12}$ and  $\bA\bP_{13}$.
+What do you observe?
+\item  Show that  $\bP_{12} \bP_{12}^T = \bI$.  (This means that $\bP_{12}^T$ is the inverse of   $\bP_{12}$---this
+property characterizes a  permutation matrix.)
+\item Show that the matrix $\bP= \bP_{12} \bP_{13} $ is also a permutation matrix. (Compute $\bP$
+explicitly  and show that $\bP \bP^T=\bI$.)
+\item Compute  the determinant of $\bP_{12}$ and that of $\bP_{13}$.
+\item\tough Use the fact that  $\hbox{det}(\bA \bB) =  \hbox{det}(\bA) \times \hbox{det}(\bB)$ to
+prove that the determinant of a permutation matrix is $\pm 1$. \emph{Hint: 
+use the fact that transposing a matrix does not change its determinant.}
+
+
+\end{enumerate}
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+\end{enumerate}
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+\section*{week 16}
+\begin{enumerate}
+ 
+
+\item\label{q1171}  If
+ \[\bA \,= \left( \begin{array}{rr} 1&2\\-2&4 \end{array} \right),\] calculate
+$\bA^{-1}$.   By direct calculation show that
+ $\bA\bA^{-1} =\bA^{-1}\bA=\bI $.
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+\item\label{q1172} Consider the linear equations
+\begin{eqnarray*}
+3x\,+\,2y&=&1\\ 
+-2x\,+\,5y&=&-7.
+\end{eqnarray*}
+	\begin{enumerate}
+	\item Write this equations in matrix form, i.e. $\bA \mathbf{x}=\mathbf{b}$.
+	\item Calculate $\bA^{-1}$ and, by direct calculation, show $\bA \bA^{-1} = \bA^{-1} \bA =\bI $.
+	\item Use $\bA^{-1}$ to obtain the values of $x$ and $y$.
+	\item Check your working by showing your answer fits the original equations.
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+\item\label{qdjsp2}
+\begin{enumerate}
+\item
+Evaluate the following  $2\times 2$  determinants:
+ $$ d_1= \left| \begin{array}{rr} 1&2 \\ -2 & 5 \end{array} \right| , \qquad
+	d_2=  \left| \begin{array}{rr}  \ffrac{5}{9} &- \ffrac{2}{9}  \\  \ffrac{2}{9}  &  \ffrac{1}{9} \end{array} \right|. $$ 
+How are  $d_1$ and $d_2$ related and why?
+\item\tough
+Next, evaluate the following  $3\times 3$ determinants:
+ $$  d_3 = \left| \begin{array}{rrr} 1&-2&1 \\ 2 & 3 & -1\\-1&-2&2 \end{array} \right|, \qquad
+	d_4=  \left| \begin{array}{rrr}2 & 3 & -1\\  1&-2&1 \\ -1&-2&2 \end{array} \right|. $$ 
+How are  $d_3$ and $d_4$  related and why? \emph{Hint:  Use the properties of permutation matrices.}
+\end{enumerate}
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+
+\item\label{q1205}\tough
+Suppose that you have square matrices, $\bA, \bB$ and $\bC$, with the properties
+$\bA\bB=\bI$ and $\bC\bA =\bI$, where $\bI$ is the identity matrix.
+Use this information to prove that $\bC = \bB$.
+
+You may assume that  $\bD \bI = \bI\bD = \bD$  for any square matrix $\bD$. You may
+not assume that $\bA \bA^{-1} = \bA^{-1} \bA = \bI$. 
+The  point of the question is to establish that the
+left-hand and right-hand inverses are identical and the above  statement assumes this.
+\emph{Hint: Do not use  inverse matrices in this question. 
+Also do not look at matrix components --- consider
+matrices as single objects and make use of their multiplication properties. 
+The proof is just a few lines long!}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\noindent\hrulefill
+
+}{}%
+
+\end{enumerate}
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+\section*{week 17}
+
+\begin{enumerate}
+
+\item\label{q1206}
+Potassium chromate is recovered from a methanol/water solution by evaporation, crystallisation
+and filtration. The total mass flows, in units of kg~h$^{-1}$, is $E$ for evaporation, $F$ for filtration and $C$
+for crystallisation. The material balance equations for potassium chromate, water and methanol are
+\begin{eqnarray*}
+1125&=&1.06C\,+\,0.3F\\
+2250&=&0.75E\,+\,0.08C\,+\,0.4F\\
+1125&=&0.25E\,+\,0.06C\,+\,0.3F .
+\end{eqnarray*}
+\begin{enumerate}
+ \item Write the system of  equations in the form 
+       $ \bA \mathbf{x}=\mathbf{b}, $
+        where {\bf A} is a $3\times 3$ matrix, {\bf x} is a column vector of the unknown quantities and {\bf b}
+is a column vector with known coefficients.
+        \item Apply  Gaussian elimination to show that $E$, $C$ and $F$ satisfy the upper triangular system
+       $$\left ( \begin{array}{rrrr}
+         1.06 & 0 & 0.3  \\
+        0 &  0.75& 0.37736 \\
+        0  & 0 & 0.15723
+         \end{array} \right )
+   \left ( \begin{array}{c}
+        C \\ E \\ F
+            \end{array} \right) =
+   \left ( \begin{array}{r}
+        1125.00 \\ 2165.10 \\ 339.62  
+            \end{array} \right) .$$
+          \item  Hence calculate $E$, $C$ and $F$ using  back-substitution.
+           \item  Calculate the determinant  of the matrix $\bA$. 
+           \emph{Hint: Adding multiples of one row to another does not change the determinant of a matrix.}
+
+       \end{enumerate}
+
+\item\label{qdjsx1} 
+It is known  that the number of floating point operations (flop) required to solve
+an $n\times n$ system of linear equations using Gaussian elimination
+is approximately $2 n^3 /3$ for large values of $n$. Estimate the 
+size of the biggest system that 
+can be solved for \pounds 10,000 if it costs \pounds 1,000 an hour to
+use the IBM Roadrunner supercomputer which has a calculation rate of $10^{15}$ flop/sec. 
+(This is called a {\it petaflop}. Conventional laptop computers run  at  a  {\it gigaflop},  that is $10^{9}$ flop/sec.)
+
+\item\label{q1207} Consider the linear equation system:
+\begin{eqnarray*}
+x\,+\,y\,+\,z&=&3\\
+x\,-\,y\,+\,2z&=&2\\
+2y\,-\,z&=&5
+\end{eqnarray*}
+            \begin{enumerate}
+            \item Write the system of  equations in the form of $\bA \mathbf{x}=\mathbf{b}$.
+            \item  Solve for $x,y,z$ using Gaussian elimination.
+             Can you explain this result? 
+            \end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+\item\label{qdjsx2} \tough
+Consider the coefficient matrix
+ $$ \bA = \left ( \begin{array}{rrrr}
+         2 & 4 & -2  \\
+        2 &  8& 4 \\
+        1  & -2 & -1
+         \end{array} \right )$$
+   Using Gaussian elimination,  solve the three distinct systems 
+  $$ \bA  \mathbf{x}_1=\mathbf{e}_1,\qquad  \bA  \mathbf{x}_2=\mathbf{e}_2, 
+   \qquad\bA  \mathbf{x}_3=\mathbf{e}_3,\qquad\qquad\qquad\qquad\qquad $$
+  where $\mathbf{e}_1=  \left[ \begin{array}{c} 1 \\ 0\\ 0 \end{array} \right]$, 
+   $\mathbf{e}_2=  \left[ \begin{array}{c} 0 \\ 1\\ 0 \end{array} \right]$
+    $\mathbf{e}_3=  \left[ \begin{array}{c} 0 \\ 0\\ 1 \end{array} \right]$, \\[2ex]
+  so as to  compute the columns of the matrix   $\bX$ satisfying $\bA \bX = \bI$.  (Note that this is
+  clever way to compute the inverse matrix $\bX= \bA^{-1}$.)  
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+
+
+\end{enumerate}
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+\section*{week 18}
+\begin{enumerate}
+
+
+
+\item\label{qdjsx3}
+A paint company is trying to use up excess quantities of four shades
+of green paint by mixing them to form a more popular shade. One gallon
+of the new paint will be made up of $x_1$ gallons of paint~1, $x_2$
+gallons of paint~2 etc. Each of the paints is made up of four
+pigments. If each number repesents a percentage, 
+the mixture giving the more popular shade is the solution of 
+the system of equations
+$$\left ( \begin{array}{rrrr}
+         0 & 80 & 10 & 10 \\
+        80 &  0 & 30 & 10 \\
+        16 & 20 & 60 & 72 \\
+         4 &  0 &  0 &  8 \end{array} \right )
+   \left ( \begin{array}{c}
+        x_1 \\ x_2 \\ x_3 \\ x_4 
+            \end{array} \right) =
+   \left ( \begin{array}{r}
+        27 \\ 40 \\ 31 \\ 2 
+            \end{array} \right) .$$
+Find the optimal mixture by solving the system using Gaussian elimination 
+with {\it partial pivoting}. (This means that you interchange rows at every step
+to put the biggest number in modulus  on the diagonal. In this example,
+ at the first stage of the elimination you would interchange row one with row two.)
+
+
+You can check your results   in MATLAB (see also the following  exercise) by typing the command sequence
+\begin{verbatim}
+>> A=[0,80,10,10;80,0,30,10;16,20,60,72;4,0,0,8],  [L,U,P] = lu(A),
+>> b=[27;40;31;2], x=A\b, 
+\end{verbatim}
+
+
+\item\label{qdjsx4}
+Given a matrix
+$$\bA= \left ( \begin{array}{rrr}
+         4.00 & -2.00 & 3.00\\
+        -2.00 &  7.25 & -2.75 \\
+         3.00 & -2.75 & 11.50 \
+         \end{array} \right ) . $$
+  By setting 
+$$  \mathbf{L} =  \left ( \begin{array}{rrr}
+         1 & 0 & 0\\
+        \ell_{21} &  1 &  0 \\
+        \ell_{31} & \ell_{32} & 1
+         \end{array} \right ),  \quad
+          \mathbf{U} =  \left ( \begin{array}{rrr}
+         u_{11} & u_{12} & u_{13} \\
+        0  &  u_{22} & u_{23} \\
+        0 & 0  & u_{33}    \end{array} \right )
+        $$
+ and forming the product,
+find a lower triangular matrix $ \mathbf{L}$ with ones on the diagonal,
+and an upper  triangular matrix $ \mathbf{U}$ such that 
+$$  \mathbf{L} \mathbf{U} = \bA.$$
+
+ This is how Gaussian elimination is implemented in MATLAB,
+ the matrix $\mathbf{U} $ is the upper triangular matrix formed by GE, the
+ matrix $\mathbf{L} $ contains the row mutipliers used at each stage
+ of the elimination, and the matrix $\mathbf{P}$  is the permutation 
+ matrix   needed  to effect the partial pivoting.
+You can check your results by typing the MATLAB command sequence
+\begin{verbatim}
+>> A=[4,-2,3;-2,7.25,-2.75;3,-2.75,11.5], [L,U,P] = lu(A),
+\end{verbatim}
+
+
+
+\end{enumerate}
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+\section*{week 19}
+
+\begin{enumerate}
+
+
+\item\label{q1188} Solve analytically the following differential equations:
+	\begin{enumerate}
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -x^2y}$ ; \ \  $y=1$ when $x=0$.
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -y^2\sin x}$ ; \ \  $y=1$ when $x=\pi/2$.
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -x(4\,+\,y^2)}$ ; \ \ $y=2$ when $x=0$.
+	\end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\noindent\hrulefill
+
+}{}%
+
+\item\label{1189} Consider the second order reaction between species A and B,
+
+\begin{center}
+$\bA \> + \> \bB \quad \longrightarrow\quad$ {\bf Products}
+
+\end{center}
+
+with initial concentrations [A]$_0$ and [B]$_0$ respectively.
+
+	\begin{enumerate}
+	\item Give an argument to show that
+	[B]$\,=\,$ [B]$_0$ + [A]$\,-\,$[A]$_0$.
+	\item Solve the differential equation \[ \frac{\dif \mathrm{[A]}}{\dif t}\,=\, -k_2 \mathrm{[A][B]}\]
+	to obtain the result
+	\[\mathrm{[A]}\,=\,\frac{c\mathrm{[A]_0}\exp{(-ck_2\,t)}}{c\,+\,
+\mathrm{[A]_0}\,-\,\mathrm{[A]_0}\exp(-ck_2\,t)}\] where $c= \mathrm{[B]}_0\,-\,\mathrm{[A]_0}$.
+	\end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\noindent\hrulefill
+
+}{}%
+	
+
+
+\item\label{q1193} 
+Solve the following linear ODEs by finding an  integrating factor:
+	\begin{enumerate}
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y\,=\,\exp{(-x)}}$ ; \ \  $y=2\> \mathrm{when} \> x=0$.
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y \cos x\,=\,\cos{x}}$ ; \ \  $y=1\> \mathrm{when} \> x=0$.
+	\item\tough  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,\frac{y}{x}\,=\,\sin{x}}$ ; \ \ $y=1\> \mathrm{when} \>x=0$.
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\noindent\hrulefill
+
+}{}%
+
+\end{enumerate}
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+\section*{week 20}
+
+%Numerical solution of a scalar nonlinear ODE. Exercises will show that 
+%explicit approximation is easy and that implicit approximation leads to 
+%a nonlinear equation to be solved at every time step.
+ 
+\begin{enumerate}
+ \item \label{qdjsode1}
+ We would like to  to solve the differential equation
+$$
+{\dif y\over \dif t} = -10(t-1)y
+$$
+with the given  initial condition:
+$y(0)=e^{-5}$. 
+{A reference  solution to this problem can  be
+plotted in MATLAB  by  typing the command sequence}  \\[1ex]
+{\tt tt=0:0.01:2; ex=exp(-5*(tt-1).*(tt-1));plot(tt,ex,'-k')}
+
+\begin{enumerate}
+\item 
+Find the analytic solution $y(t)$, and evaluate it at\\
+$t=0.2,0.4, 0.6, 0.8, 1.0, 1.2$ and  $1.4$.
+
+
+\item
+Compute the forward Euler solution by  taking {\it seven} steps of the method
+with a step length of $h=0.2$. (You will need a calculator to do this.)
+Generate a table which
+compare the analytic solution with the numerical solution. At which
+time $t$ do you find the biggest error ?
+
+\item
+Compute a more accurate  forward Euler solution  by  taking  four steps with
+a  much smaller step length of $h=0.05$. Compare this solution
+with the exact solution  $y(0.2)$ and compare the accuracy of this  solution
+with the first time step result  obtained in (b).
+\end{enumerate}
+
+Note that  this differential equation  is not as benign as
+it looks; if one wants to solve it over a long time interval,
+sophisticated numerical methods (like those that are built into MATLAB)
+ are needed. A simple example of a sophisticated method is
+ the implicit Euler method discussed in the lectures. 
+\end{enumerate}
+
+  
+ 
+ %\begin{enumerate}
+%\item\label{q1187} 
+%Carry out one step of the second order Runge-Kutta method (i.e. calculate $y(h)$) for
+%
+%\[ \frac{\dif y}{\dif x}\,=\, -xy\,+\,1\]
+%with the boundary condition $y=1$ when $x=0$.  
+%Take the step $h=0.1$ and quote your answers to four decimal places.
+%\end{enumerate}
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+
+\section*{week 21}
+
+
+\begin{enumerate}
+
+
+ \item \label{qdjsode4}
+Compute the {\it implicit} (or {backward}) Euler solution  to the model problem 
+$$
+{\dif y\over \dif t} = -10(t-1)y
+$$
+with the given  initial condition:
+$y(0)=e^{-5}$, 
+by  taking  four steps with
+a  step length of $h=0.05$. Compare this solution
+with the exact solution  $y(0.2)$ and the forward Euler 
+solution computed previously.
+
+
+
+\item \label{qdjsode2}
+ Consider a population of bacteria in a confined environment in which no more than 
+ $B$ elements can coexist. We assume that, at the initial time $t=0$, the number of individuals
+ is  much smaller than $B$ and is equal to $y_0$. We also assume that
+ the growth rate of the bacteria is a positive constant  $C$.
+ In this case the rate of change of the population is proportional to the number
+ of existing bacteria, under the restriction that the total number cannot exceed
+ $B$. This is expressed by the differential equation 
+ $${\dif y\over \dif t} = Cy \left( 1-{y\over B}\right),$$
+ whose solution $y=y(t)$ denotes the number of bacteria at time $t$.
+ 
+ \begin{enumerate}
+\item 
+Given some initial population $y_0$ and a  step length of $h$,
+write down the general update formula for computing the forward Euler 
+solution  $y_{n+1}$  from the previous estimate $y_n\approx y(nh)$.
+\item 
+Next, write down the general update formula for computing the {\it implicit} Euler 
+solution  $y^*_{n+1}$  from the previous estimate $y^*_n \approx y(nh)$.
+
+
+
+ \end{enumerate}
+ 
+Note that  if a general  nonlinear ODE is to be solved numerically using an $implicit$ time stepping
+method then a nonlinear equation must be solved at every timestep!
+
+
+\item \label{qdjsode3}\tough
+In Biochemistry, a Michaelis--Menten type process involves
+ a substrate $S$, an enzyme $E$, a complex $C$ and a product $P$, and is
+ summarized through the set of  reactions 
+ \begin{eqnarray*}
+S + E &\stackrel{c_1}{\longrightarrow}& C\\
+C  &\stackrel{c_2}{\longrightarrow}& S + E\\
+C &\stackrel{c_3}{\longrightarrow}& P+E.
+\end{eqnarray*}
+In the framework of chemical kinetics, this set of reactions may be interpreted as
+a systems of ODEs as follows
+  \begin{eqnarray*}
+{\dif S\over \dif t}   &= &  -c_1 S E  +c_2\,C\\
+{\dif E\over \dif t}   &= &  -c_1 S E  + (c_2 +c_3) \,C\\
+{\dif C\over \dif t}   &= &  c_1 S E  - (c_2 +c_3) \,C\\
+{\dif P\over \dif t}   &= &  c_3 \,C,
+\end{eqnarray*}
+where  $S(t)$,   $E(t)$,  $C(t)$ and  $P(t)$ denote the concentrations of substrate,
+enzyme, complex and product, respectively,  at time $t$. 
+
+ \begin{enumerate}
+\item 
+Given some initial values $S_0$,   $E_0$,  $C_0$ and  $P_0$ and a step length $h$,
+write down a set of update formulas for computing the forward Euler solution
+ $S_{n+1}$,   $E_{n+1}$,  $C_{n+1}$ and  $P_{n+1}$   from the previous time
+ solution estimates  $S_{n}$,   $E_{n}$,  $C_{n}$ and  $P_{n}$. 
+ \item
+ Next, write down the general update formula for computing the {\it implicit} Euler 
+solution
+$S^*_{n+1}$,   $E^*_{n+1}$,  $C^*_{n+1}$ and  $P^*_{n+1}$   from the previous 
+time solution  estimates. You should find that this requires the solution of a 
+{\it system of nonlinear equations} at every time step. 
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+\section*{week 22}
+
+ 
+ %\noindent
+%Numerical solution of a system of linear ODEs. Exercises will show that 
+%explicit approximation is easy and that implicit approximation leads to 
+%a system of linear equations to be solved at every time step.
+\begin{enumerate}
+\item\label{qdjsn1} 
+Verify that the nonlinear equation 
+$${x}^{1/2} \sin (x) = 1$$ has at
+least one solution in the interval (1.1,1.3). Hence find a solution  
+which is accurate to two decimal places using
+\begin{enumerate}
+%\renewcommand{\theenumii}{\roman{enumii}}
+\item an interval halving method,
+\item a Newton iteration method (with initial guess $x_0 = 1.2$),
+\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+\item\label{qdjsn2}\tough 
+Derive a Newton method to calculate the fifth root of a given real 
+number, $s$ say. Use your method to calculate $5^{1/5}$ correct to 
+four decimal places.
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+}{}%
+
+\end{enumerate}
+
+%\begin{enumerate}
+%\item\label{qdjs5} 
+%As a group, generate a flow diagram for a MATLAB function to
+%find the roots of three coupled nonlinear equations using
+%Newton's method.
+%\end{enumerate}
+
+
+\end{document}
