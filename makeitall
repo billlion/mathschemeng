@@ -1,0 +1,3 @@
+#!/bin/bash
+for fn in week*.tex; do ./makeit $fn;done
+
