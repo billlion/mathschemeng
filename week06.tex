@@ -53,13 +53,17 @@ geometry}                % See geometry.pdf to learn the layout options. There a
 
 %% Change this boolean to true to compile solutions.
 \newboolean{mynotes}
-\input{notesflag}
-%\setboolean{mynotes}{true}
+\setboolean{mynotes}{false}
 
 %%---------------------------------------------------------------------------------------
 \begin{document}
 
-\input{heading}
+\begin{center} 
+{\bf Maths Problems for 2017 | CHEN10072 \\
+Bill Lionheart, Michael Crabb\\
+ March 2017}
+\end{center}
+
 
 %%---------------------------------------------------------------------------------------
 
@@ -73,7 +77,7 @@ Solve the following linear ODEs by finding an  integrating factor:
 	\begin{enumerate}
 	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y\,=\,\exp{(-x)}}$ ; \ \  $y=2\> \mathrm{when} \> x=0$.
 	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y \cos x\,=\,\cos{x}}$ ; \ \  $y=1\> \mathrm{when} \> x=0$.
-	\item\tough  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,\frac{y}{x}\,=\,\sin{x}}$ ; \ \ $y=0\> \mathrm{when} \>x=0$. (Changed -- it was $y=1$ but that did not work!)
+	\item\tough  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,\frac{y}{x}\,=\,\sin{x}}$ ; \ \ $y=0\> \mathrm{when} \>x=0$.% (Changed -- it was $y=1$ but that did not work!)
 	\end{enumerate}
 
 \ifthenelse{\boolean{mynotes}}{
