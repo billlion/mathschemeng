@@ -54,18 +54,22 @@ geometry}                % See geometry.pdf to learn the layout options. There a
 %% Change this boolean to true to compile solutions.
 \newboolean{mynotes}
 \input{notesflag}
-%\setboolean{mynotes}{true}
+%\setboolean{mynotes}{false}
 
 %%---------------------------------------------------------------------------------------
 \begin{document}
 
 
-\input{heading}
+\begin{center} 
+{\bf Maths Problems for 2017 | CHEN10072 \\
+Bill Lionheart, Michael Crabb\\
+ March 2017}
+\end{center}
 
 \section*{Week 8}
 
  \begin{enumerate}
-\item \label{qdjsode2}
+\item \label{qdjsode1}
  Consider a population of bacteria in a confined environment in which no more than 
  $B$ elements can coexist. We assume that, at the initial time $t=0$, the number of individuals
  is  much smaller than $B$ and is equal to $y_0$. We also assume that
@@ -116,6 +120,96 @@ You should find that this approach requires the solution if a
 	\end{enumerate}
  
 }{}%
+
+
+
+\item \label{qdjsode2}
+
+Consider  the following  linear {\it second order} differential equation
+problem: find  $y(x)$ such that
+$$
+{\dif^2 y\over \dif x^2} +{\dif y\over \dif x} + x^2 y =0 ; \quad y(1)=0; \>\> {\dif y\over \dif x} (1)=1.
+$$
+
+\begin{enumerate}
+\item
+%Using the substitution $v=\dif y/\dif x$ show that this problem can be rewritten  as a system of
+Using the substitution  $v=\dif y/\dif x$ show that can be rewritten as a system of
+first order differential equations, and find the associated initial conditions.
+\item
+ Solve the differential equation numerically to find an approximation to 3 significant figures for $y(1.1)$, using (i) Forward Euler method and (ii) Backward Euler method, using $2$ steps with a step size of $h=0.05$.
+
+\end{enumerate}
+
+ 
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+{\bf Solution}
+\noindent\hrulefill
+
+
+
+\begin{enumerate}
+\item Using substitution we have
+$$\frac{\dif v}{\dif x} + v + x^2 y=0, \frac{\dif y}{\dif x} =v$$
+or
+$$\frac{\dif }{\dif x} \left(\begin{array}{c} y \\ v\end{array} \right)
+=\left(\begin{array}{cc} 0 & 1 \\ -x^2 & -1 \end{array} \right) \left(\begin{array}{c} y \\ v\end{array} \right)
+$$
+$y(1)=0, v(1)=1$
+\item For general linear ODE system i.e. $\mathbf{w}'=\mathbf{F}(\mathbf{w},x)$ , $w_j=\mathbf{w}(x_j)$
+
+FE: $\mathbf{w}_{j+1} = \mathbf{w}_{j} + h \mathbf{F}(\mathbf{w}_j,x_j)$
+
+BE: $\mathbf{w}_{j+1} = \mathbf{w}_{j} + h \mathbf{F}(\mathbf{w}_{j+1},x_{j+1})$
+
+Case here i.e. ODE coefficients functions of dependent variable $\mathbf{F}(\mathbf{w},x)= A(x) \mathbf{w}$
+
+FE: $\mathbf{w}_{j+1} = \mathbf{w}_{j} + h A(x_j)\mathbf{w}_j$ so $\mathbf{w}_{j+1} = (I +hA(x_{j})) \mathbf{w}_{j}$
+
+BE: $\mathbf{w}_{j+1} = \mathbf{w}_{j} + h A(x_{j+1})\mathbf{w}_{j+1}$ so $\mathbf{w}_{j+1} = (I -hA(x_{j+1}))^{-1} \mathbf{w}_{j}$
+
+\begin{enumerate}
+ \item  $$\left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.05} = \left(   
+ \left(\begin{array}{cc} 1 & 0 \\ 0  & 1\end{array} \right)
+ + 0.05 \left(\begin{array}{cc} 0 & 1 \\ -1^2  & -1 \end{array} \right) 
+ \right)
+ \left(\begin{array}{c} y \\ v\end{array} \right)_{x=1}
+ $$
+ $$= \left(\begin{array}{cc} 1 & 0.05 \\ -0.05  & 0.95\end{array} \right) \left(\begin{array}{c} 0 \\ 1\end{array} \right)=\left(\begin{array}{c} 0.05 \\ 0.95\end{array} \right) $$ 
+ 
+$$\left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.1} = \left(   
+ \left(\begin{array}{cc} 1 & 0 \\ 0  & 1\end{array} \right)
+ + 0.05 \left(\begin{array}{cc} 0 & 1 \\ -1.05^2  & -1 \end{array} \right) 
+ \right)
+ \left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.05}
+ $$
+ $$= \left(\begin{array}{cc} 1 & 0.05 \\ -0.055125  & 0.95\end{array} \right) \left(\begin{array}{c} 0.05 \\ 0.95 \end{array} \right)=\left(\begin{array}{c} 0.0975 \\ 0.900\end{array} \right) $$ 
+ 
+ and $y(1.1)= 0.0975$ to 3 s.f.
+ \item 
+  $$\left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.05} = \left(   
+  \left(\begin{array}{cc} 1 & 0 \\ 0  & 1\end{array} \right)
+  - 0.05 \left(\begin{array}{cc} 0 & 1 \\ -1.05^2  & -1 \end{array} \right) 
+  \right)^{-1}
+  \left(\begin{array}{c} y \\ v\end{array} \right)_{x=1}
+  $$
+  $$= \left(\begin{array}{cc} 1 & -0.05 \\ 0.055125  & 1.05\end{array} \right)^{-1} \left(\begin{array}{c} 0 \\ 1\end{array} \right)=\left(\begin{array}{c} 0.04749437 \\ 0.9498875\end{array} \right) $$ 
+  
+  $$\left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.1} = \left(   
+  \left(\begin{array}{cc} 1 & 0 \\ 0  & 1\end{array} \right)
+  - 0.05 \left(\begin{array}{cc} 0 & 1 \\ -1.1^2  & -1 \end{array} \right) 
+  \right)^{-1}
+  \left(\begin{array}{c} y \\ v\end{array} \right)_{x=1.05}
+  $$
+  $$= \left(\begin{array}{cc} 1 & -0.05 \\ 0.0605  & 1.05\end{array} \right)^{-1} \left(\begin{array}{c} 0.04749437 \\ 0.9498875\end{array} \right)=\left(\begin{array}{c} 0.0925 \\ 0.899\end{array} \right) $$ 
+  
+  and $y(1.1)= 0.0925$ to 3 s.f.
+\end{enumerate}
+\end{enumerate}
+ 
+}{}%
+
 
 
 \item \label{qdjsode3}\tough
