@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+
+
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\input{notesflag}
+\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+\input{heading}
+
+
+\section*{Week 1}
+
+\begin{enumerate}
+
+\item\label{q1167} Let
+\[ \bA \,=\, \left( \begin{array}{rr} 1 &2 \\ -2 &2 \end{array} \right) \quad
+\hbox{and} \quad
+\bB \,=\, \left( \begin{array}{rr} -3 &1 \\ -1 &-4 \end{array} \right)
+\hbox{and} \quad
+\bC \,=\, \left( \begin{array}{rrr} 1 &2 & 3 \\ 0 &1 &-1\end{array} \right).\]
+
+Compute the following matrices:
+	\begin{enumerate}
+	\item Calculate $\bA\bB$ and $\bB \bA$
+	\item Calculate any of these matrix expressions that are possible $\bA \bC$, $\bC \bA$ $\bA+2\bB$, $\bA+\bC$. 
+	\item $\bB^T \bA^T$.  Is it true that $(\bA \bB)^T= \bB^T \bA^T$?
+	\item Calculate $\bC^T \bC$ and  $\bC \bC^T$ 
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\begin{enumerate}
+	\item\[ \bA \bB = \left(
+	\begin{array}{cc}
+	-5 & -7 \\
+	4 & -10
+	\end{array}
+	\right), \quad \bB\bA= \left(
+	\begin{array}{cc}
+	-5 & -4 \\
+	7 & -10
+	\end{array}
+	\right),\quad \bA \bB \ne \bB \bA \]
+\item 
+\[\bA \bC=\left(
+\begin{array}{rrr}
+1  & 4  & 1\\
+-2  & -2 & -8 \end{array}\right), \,
+ \bA + 2 \bB=\left(
+ \begin{array}{rr}
+   -6 &  2 \\
+   -2  &-8
+ \end{array}\right) 
+ \]
+
+\item \[\bB^T \bA^T=\left(
+\begin{array}{cc}
+ -5 & 4 \\
+ -7 & -10
+\end{array}
+\right)= (\bA \bB)^T\]
+
+
+\item \[\bC \bC^T=\left(
+\begin{array}{cc}
+14  & -1 \\
+-1  &  2 \end{array}
+\right), \,
+\bC^T\bC=\left(
+\begin{array}{ccc}
+   1  &  2  &  3 \\
+   2  &  5  &  5\\
+   3  &  5  & 10\end{array}\right)\]
+\end{enumerate}
+
+\noindent\hrulefill
+
+}{}%
+
+
+
+\item\label{qwrblm1}
+Let 
+\[ \bA =  \left( \begin{array}{r} 1 \\ 2 \\ -1 \end{array} \right) \quad
+\hbox{and} \quad
+\bB =  \left( \begin{array}{r} 2 \\ -1 \\ 0 \end{array} \right)
+\] 
+\begin{enumerate}
+	\item Calculate $\bA^T \bA$.
+	\item Calculate $\bA^T \bB$.
+	\item What do the above mean if we think of the matrices as vectors?
+	\item Calculate $\bA \bA^T$ and $\bA \bA^T \bB$.
+	\item Calculate $\bA \bA^T + \bI$ where $\bI$ is the $3\times 3 $ identity matrix.
+
+	\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\begin{enumerate}
+	\item 6
+	\item $0$, or $(0)$
+	\item The squared length $||\bA||^2=6$ and the dot product $\bA \cdot \bB=0$ so the two vector are orthogonal. 
+	\item \[  \bA \bA^T=\left(
+\begin{array}{ccc}\
+ 1 & 2 & -1 \\
+ 2 & 4 & -2 \\
+ -1 & -2 & 1
+\end{array}
+\right) \]
+
+\item \[ \bA \bA^T + \bI= \left(
+\begin{array}{ccc}
+ 2 & 2 & -1 \\
+ 2 & 5 & -2 \\
+ -1 & -2 & 2
+\end{array}
+\right) \]
+\item \[ \det( \bA \bA^T + \bI)=7 \] 
+
+\end{enumerate}
+\noindent\hrulefill	
+
+}{}%	
+
+
+\end{enumerate}
+\hfill {\tiny Last modified  \today}
+\vfill\eject
+
+
+
+\end{document}
