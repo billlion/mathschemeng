@@ -140,7 +140,9 @@ Compute the following matrices:
 
 
 
-\item\label{qwrblm1}
+\item
+
+
 Let 
 \[ \bA =  \left( \begin{array}{r} 1 \\ 2 \\ -1 \end{array} \right) \quad
 \hbox{and} \quad
@@ -187,6 +189,60 @@ Let
 }{}%	
 
 
+
+\item\label{q1172} Consider the linear equations
+\begin{eqnarray*}
+	3x\,+\,2y&=&1\\ 
+	-2x\,+\,5y&=&-7.
+\end{eqnarray*}
+\begin{enumerate}
+	\item Write this equations in matrix form, i.e. $\bA \mathbf{x}=\mathbf{b}$.
+	\item Calculate $\bA^{-1}$. 
+	\item Use $\bA^{-1}$ to obtain the values of $x$ and $y$.
+	\item Check your working by showing your answer fits the original equations.
+\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+	\noindent\hrulefill
+	{\bf Solution}
+	
+	\[ \left(
+	\begin{array}{rr}
+	3 & 2 \\
+	-2 & 5
+	\end{array}
+	\right)^{-1}= \left(
+	\begin{array}{rr}
+	\frac{5}{19} & -\frac{2}{19}
+	\\
+	\frac{2}{19} & \frac{3}{19}
+	\end{array}
+	\right)\]
+	\[  \left(
+	\begin{array}{rr}
+	\frac{5}{19} & -\frac{2}{19}
+	\\
+	\frac{2}{19} & \frac{3}{19}
+	\end{array}
+	\right) 
+	\left(
+	\begin{array}{r}
+	1 \\ -7
+	\end{array}
+	\right) = 
+	\left(
+	\begin{array}{r}
+	1 \\ -1
+	\end{array}
+	\right) 
+	\]
+	\begin{eqnarray*}
+		3\times 1\,+\,2\times -1&=&1\\ 
+		-2\times 1 \,+\,5\times -1 &=&-7.
+	\end{eqnarray*}
+
+\noindent\hrulefill
+}{}%
 \end{enumerate}
 \hfill {\tiny Last modified  \today}
 \vfill\eject
