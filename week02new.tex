@@ -1,0 +1,391 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bb{\mathbf{b}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\bx{\mathbf{x}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\input{notesflag}
+%\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+\input{heading}
+
+
+%%---------------------------------------------------------------------------------------
+\section*{Week 2}
+
+
+
+\begin{enumerate}
+\item
+Next, evaluate the following  $3\times 3$ determinants:
+$$  d_3 = \left| \begin{array}{rrr} 1&-2&1 \\ 2 & 3 & -1\\-1&-2&2 \end{array} \right|, \qquad
+d_4=  \left| \begin{array}{rrr}2 & 3 & -1\\  1&-2&1 \\ -1&-2&2 \end{array} \right|. $$ 
+How are  $d_3$ and $d_4$  related and why?
+
+\item
+Given 
+\begin{eqnarray*}
+x\,+\,3y\,+\,2z&=&1\\
+\,-\,2y\,+\,z&=&2\\
+\,\,\,z&=&1
+\end{eqnarray*}
+solve the system by back substitution. Write the  system of equations in the form $\bA\bx=\bb$, where $\bA$ is upper triangular.
+
+Check that 
+\[
+\left(
+\begin{array}{ccc}
+1 & \frac{3}{2} &
+-\frac{7}{2} \\
+0 & -\frac{1}{2} &
+\frac{1}{2} \\
+0 & 0 & 1 \\
+\end{array}
+\right)
+\]
+is the inverse of $\bA$. 
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\begin{equation*}\bA^{-1}=\left(
+\begin{array}{rrr}
+ 1 & \frac{3}{2} &
+   -\frac{7}{2} \\
+ 0 & -\frac{1}{2} &
+   \frac{1}{2} \\
+ 0 & 0 & 1
+\end{array}
+\right),\qquad \bx = \bA^{-1}\bb =\left(
+\begin{array}{r}
+ \frac{1}{2} \\
+ -\frac{1}{2} \\
+ 1
+\end{array}
+\right)
+\end{equation*}
+\noindent\hrulefill
+}{}%
+
+.
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+$z=1, y=-1/2,x=1/2$
+
+\noindent\hrulefill
+}{}%
+
+
+\item Solve the system in 
+
+\begin{eqnarray*}
+	x\,+\,2y\,+\,z&=&1\\
+	3x\,+\,2y\,+\,z&=&2\\
+	x\,\,\,\,\,\,\,-\,3z&=&1
+\end{eqnarray*}
+
+
+ by Gaussian elimination.
+
+
+\ifthenelse{\boolean{mynotes}}{
+	\noindent\hrulefill
+	
+	{\bf Solution}
+	$x=1/2,y=1/3,z=-1/6$
+}{}%
+
+
+
+\item Write the following system of equations in Q3  the form $\bA\bx=\bb$
+
+Solve the system of equations $\bA \bx_i =\mathbf{e}_i$ for $i=1,2,3$ where 
+\[
+\mathbf{e}_1=
+\left(
+\begin{array}{c}
+1   \\
+0  \\
+0  \\
+\end{array}
+\right),
+\mathbf{e}_2=
+\left(
+\begin{array}{c}
+0   \\
+1  \\
+0  \\
+\end{array}
+\right)
+\mathbf{e}_3=
+\left(
+\begin{array}{c}
+0   \\
+0  \\
+1  \\
+\end{array}
+\right)
+\]
+
+Check that the matrix with columns $\bx_1,\bx_2,\bx_3$ is the inverse of $\bA$
+
+Use the inverse to solve the system in Q3 and check you get the same answer.
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+\begin{equation*}\bA =\left(
+\begin{array}{ccc}
+ 1 & 2 & 1 \\
+ 3 & 2 & 1 \\
+ 1 & 0 & -3
+\end{array}
+\right),\quad \bb=\left(
+\begin{array}{r}
+ 1 \\
+ 2 \\
+ 1
+\end{array}
+\right),
+\quad\bA^{-1}=\left(
+\begin{array}{rrr}
+ -\frac{1}{2} & \frac{1}{2} &
+   0 \\
+ \frac{5}{6} & -\frac{1}{3} &
+   \frac{1}{6} \\
+ -\frac{1}{6} & \frac{1}{6} &
+   -\frac{1}{3}
+\end{array}
+\right),\quad \bA^{-1}\bb = \left(
+\begin{array}{r}
+ \frac{1}{2} \\
+ \frac{1}{3} \\
+ -\frac{1}{6}
+\end{array}
+\right)
+\end{equation*}
+
+\noindent\hrulefill
+}{}%
+
+\item\label{q1206}
+Potassium chromate is recovered from a methanol/water solution by evaporation, crystallisation
+and filtration. The total mass flows, in units of kg~h$^{-1}$, is $E$ for evaporation, $F$ for filtration and $C$
+for crystallisation. The material balance equations for potassium chromate, water and methanol are
+\begin{eqnarray*}
+1125&=&1.06C\,+\,0.3F\\
+2250&=&0.75E\,+\,0.08C\,+\,0.4F\\
+1125&=&0.25E\,+\,0.06C\,+\,0.3F .
+\end{eqnarray*}
+\begin{enumerate}
+ \item Write the system of  equations in the form 
+       $ \bA \mathbf{x}=\mathbf{b}, $
+        where {\bf A} is a $3\times 3$ matrix, {\bf x} is a column vector of the unknown quantities and {\bf b}
+is a column vector with known coefficients.
+        \item Apply  Gaussian elimination to show that $E$, $C$ and $F$ satisfy the upper triangular system
+       $$\left ( \begin{array}{rrrr}
+         1.06 & 0 & 0.3  \\
+        0 &  0.75& 0.37736 \\
+        0  & 0 & 0.15723
+         \end{array} \right )
+   \left ( \begin{array}{c}
+        C \\ E \\ F
+            \end{array} \right) =
+   \left ( \begin{array}{r}
+        1125.00 \\ 2165.10 \\ 339.62  
+            \end{array} \right) .$$
+          \item  Hence calculate $E$, $C$ and $F$ using  back-substitution.
+           \item  Calculate the determinant  of the matrix $\bA$. 
+           \emph{Hint: Adding multiples of one row to another does not change the determinant of a matrix.}
+
+       \end{enumerate}
+       
+ 
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}  
+For example    
+\begin{enumerate}       
+\item \begin{equation*}\bA=\left(
+\begin{array}{ccc}
+ 1.06 & 0 & 0.3 \\
+ 0.08 & 0.75   & 0.4 \\
+ 0.06 & 0.25 &   0.3
+\end{array}
+\right),\quad \bb= \left(
+\begin{array}{r}
+ 1125.0 \\
+ 2250 \\
+ 1125
+\end{array}
+\right),\quad \bx= \left(
+\begin{array}{r}
+ C \\
+ E \\
+ F
+\end{array}
+\right)
+\end{equation*}
+\item $F=339.62/0.15723=2160.02$ , $E=(0.37736\times F  -  2165.10)/0.75=-1799.99$,
+$C=(1125.0 - 0.3\times F)/1.06=449.994$, which we should probably round to two decimal places $C=449.99,E=-1799.99,F=2160.02$.  Note there is some loss of precision here
+\item $1.06 \times 0.75 \times 0.15723=0.125$ so determinant is   $0.125$ . 
+\end{enumerate}
+
+\noindent\hrulefill
+  
+}{}%
+
+\item\label{q1207} Consider the linear equation system:
+\begin{eqnarray*}
+x\,+\,y\,+\,z&=&3\\
+x\,-\,y\,+\,2z&=&2\\
+2y\,-\,z&=&5
+\end{eqnarray*}
+            \begin{enumerate}
+            \item Write the system of  equations in the form of $\bA \mathbf{x}=\mathbf{b}$.
+            \item  Try to solve for $x,y,z$ using Gaussian elimination.
+             Can you explain this result? 
+            \end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+
+\begin{enumerate}
+\item $$\bA=\left(
+\begin{array}{ccc}
+ 1 & 1 & 1 \\
+ 1 & -1 & 2 \\
+ 0 & 2 & -1
+\end{array}
+\right)$$
+
+\item $$\left(
+\begin{array}{rrr|r}
+ 1 & 0 & \frac{3}{2} & 0 \\
+ 0 & 1 & -\frac{1}{2} & 0 \\
+ 0 & 0 & 0 & 1
+\end{array}
+\right)$$ The determinant of $\bA$ is zero so we might expect not to be able to solve the system. The last equation in the row-reduced form says $0=1$ so there can be no solution. This means that the original system is inconsistent and there are no solutions.
+\end{enumerate}
+
+\noindent\hrulefill
+
+
+}{}%
+
+
+\item\label{qdjsx2}
+Given matrix
+ $$ \bA = \left ( \begin{array}{rrrr}
+         2 & 4 & -2  \\
+        2 &  8& 4 \\
+        1  & -2 & -1
+         \end{array} \right )$$
+         
+Calculate $\bA^{-1}$.
+%   Using Gaussian elimination,  solve the three distinct systems 
+%  $$ \bA  \mathbf{x}_1=\mathbf{e}_1,\qquad  \bA  \mathbf{x}_2=\mathbf{e}_2, 
+%   \qquad\bA  \mathbf{x}_3=\mathbf{e}_3,\qquad\qquad\qquad\qquad\qquad $$
+%  where $\mathbf{e}_1=  \left[ \begin{array}{c} 1 \\ 0\\ 0 \end{array} \right]$, 
+%   $\mathbf{e}_2=  \left[ \begin{array}{c} 0 \\ 1\\ 0 \end{array} \right]$
+%    $\mathbf{e}_3=  \left[ \begin{array}{c} 0 \\ 0\\ 1 \end{array} \right]$, \\[2ex]
+%  so as to  compute the columns of the matrix   $\bX$ satisfying $\bA \bX = \bI$.  (Note that this is
+%  clever way to compute the inverse matrix $\bX= \bA^{-1}$.)  
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+
+The $\bx_i$ should be the columns of 
+$$\bA^{-1}=\left(
+\begin{array}{rrr}
+ 0 & \frac{1}{6} & \frac{2}{3}
+   \\
+ \frac{1}{8} & 0 &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & \frac{1}{6} &
+   \frac{1}{6}
+\end{array}
+\right)$$
+
+\noindent\hrulefill
+
+}{}%
+
+
+
+\end{enumerate}
+\hfill {\tiny Last modified  \today}
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+\end{document}
