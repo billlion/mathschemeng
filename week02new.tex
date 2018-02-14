@@ -56,7 +56,7 @@ geometry}                % See geometry.pdf to learn the layout options. There a
 %% Change this boolean to true to compile solutions.
 \newboolean{mynotes}
 \input{notesflag}
-%\setboolean{mynotes}{true}
+\setboolean{mynotes}{true}
 
 %%---------------------------------------------------------------------------------------
 \begin{document}
@@ -76,6 +76,14 @@ $$  d_1 = \left| \begin{array}{rrr} 1&-2&1 \\ 2 & 3 & -1\\-1&-2&2 \end{array} \r
 d_2=  \left| \begin{array}{rrr}2 & 3 & -1\\  1&-2&1 \\ -1&-2&2 \end{array} \right|. $$ 
 How are  $d_1$ and $d_2$  related and why?
 
+\ifthenelse{\boolean{mynotes}}{
+	\noindent\hrulefill
+	
+	{\bf Solution}
+$d_1=9$, $d_2=-9$. Swapping the first two rows corresponds changes the sign of teh determininant. Same as multiplying by a permutation matrix with a determinant of $-1$
+
+\noindent\hrulefill
+}{}
 \item
 Given 
 \begin{eqnarray*}
@@ -97,14 +105,64 @@ Check that
 \end{array}
 \right)
 \]
-is the inverse of $\bA$. 
+is the inverse of $\bA$. Solve the system using the inverse.
 
 \ifthenelse{\boolean{mynotes}}{
 \noindent\hrulefill
 
 {\bf Solution}
 
-\begin{equation*}\bA^{-1}=\left(
+
+
+\begin{equation*}\bA=\left(
+\begin{array}{rrr}
+1 & 3 &
+2 \\
+0 & -2 &
+1\\
+0 & 0 & 1
+\end{array}
+\right),\,\bb =\left(
+\begin{array}{r}
+1 \\
+2 \\
+1
+\end{array}
+\right)
+\end{equation*}
+
+\begin{equation*}\left(
+\begin{array}{rrr}
+1 & 3 &
+2 \\
+0 & -2 &
+1\\
+0 & 0 & 1
+\end{array}
+\right)
+\left(
+\begin{array}{rrr}
+1 & \frac{3}{2} &
+-\frac{7}{2} \\
+0 & -\frac{1}{2} &
+\frac{1}{2} \\
+0 & 0 & 1
+\end{array}
+\right)  = 
+\left(
+\begin{array}{rrr}
+1 & 0 &
+0 \\
+0 & 1 &
+0\\
+0 & 0 & 1
+\end{array}
+\right)
+\end{equation*}
+
+so
+
+\begin{equation*}\left(
 \begin{array}{rrr}
  1 & \frac{3}{2} &
    -\frac{7}{2} \\
@@ -112,7 +170,7 @@ is the inverse of $\bA$.
    \frac{1}{2} \\
  0 & 0 & 1
 \end{array}
-\right),\qquad \bx = \bA^{-1}\bb =\left(
+\right)=\bA^{-1},\qquad \bx = \bA^{-1}\bb =\left(
 \begin{array}{r}
  \frac{1}{2} \\
  -\frac{1}{2} \\
@@ -120,23 +178,15 @@ is the inverse of $\bA$.
 \end{array}
 \right)
 \end{equation*}
-\noindent\hrulefill
-}{}%
 
-.
-
-\ifthenelse{\boolean{mynotes}}{
-\noindent\hrulefill
-
-{\bf Solution}
-
+The same as we would get by back substituting
 $z=1, y=-1/2,x=1/2$
 
 \noindent\hrulefill
 }{}%
 
 
-\item Solve the system in 
+\item Solve the system 
 
 \begin{eqnarray*}
 	x\,+\,2y\,+\,z&=&1\\
@@ -365,7 +415,6 @@ Calculate $\bA^{-1}$.
 
 {\bf Solution}
 
-The $\bx_i$ should be the columns of 
 $$\bA^{-1}=\left(
 \begin{array}{rrr}
  0 & \frac{1}{6} & \frac{2}{3}
