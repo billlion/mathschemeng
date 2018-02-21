@@ -1,0 +1,259 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[twoside,a4paper,hmarginratio=3:2,vmarginratio=1:1,bmargin=2.54cm]{
+geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an inden
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{savepapr}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{indentfirst}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{flafter}
+%%%\usepackage{reenumi}
+\usepackage{bibentry}
+%\usepackage{hyperref}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{makeidx}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\dif}{\mathsf{d}}
+
+%%---------------------------------------------------------------  DJS Definitions 
+\def\ffrac#1#2{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\def\half{\frac{1}{2}}
+\def\hhalf{\ffrac{1}{2}}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bI{\mathbf{I}}
+\def\bP{\mathbf{P}}
+\def\bX{\mathbf{X}}
+\def\tough{$\!\!\!{}^\star\>$}
+\newcommand{\R}{{\mathbb{R}}}
+
+
+%% Change this boolean to true to compile solutions.
+\newboolean{mynotes}
+\input{notesflag}
+%\setboolean{mynotes}{true}
+
+%%---------------------------------------------------------------------------------------
+\begin{document}
+
+\input{heading}
+
+
+%%---------------------------------------------------------------------------------------
+
+\section*{Week 4}
+
+\begin{enumerate}
+
+
+\item\label{q1188} Solve analytically the following differential equations:
+	\begin{enumerate}
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -x^2y}$ ; \ \  $y=1$ when $x=0$.
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -y^2\sin x}$ ; \ \  $y=1$ when $x=\pi/2$.
+	\item $\displaystyle{ \frac{\dif y}{\dif x}\,=\, -x(4\,+\,y^2)}$ ; \ \ $y=2$ when $x=0$.
+	\end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+\begin{enumerate}
+
+
+\item  
+\begin{eqnarray*}\int \frac{\mathrm{d}y}{y} &=& \int -x^2\,\mathrm{d}x \\
+\ln |y| &=& - \frac{x^3}{3} +c \\
+     y  &=& A \mathrm{e}^{-\frac{x^3}{3}}
+\end{eqnarray*}
+Note we removed the absolute value as $A$ can be positive or negative.  Using $y=1$ when $x=0$ we see $A=1$ and 
+$$ y= \mathrm{e}^{-\frac{x^3}{3}}$$
+is the particular solution.
+\item \begin{eqnarray*}\int \frac{\mathrm{d}y}{y^2} &=& \int -\sin x\,\mathrm{d}x \\
+\frac{1}{y} &=& - \cos x +c \\
+     y  &=& \frac{1}{c - \cos x}
+\end{eqnarray*}
+ Using $y=1$ when $x=\pi/2$ we see have 
+ $1 = - 0 +c $ so 
+  $c=1$ and 
+$$
+     y  = \frac{1}{ 1-\cos x}
+$$
+is the particular solution.
+\item 
+\begin{eqnarray*}\int \frac{\mathrm{d}y}{4=y^2} &=& \int -x\,\mathrm{d}x \\
+\frac{1}{2} \tan^{-1} \frac{y}{2} &=& - \frac{x^2}{2} +c \\
+     \tan^{-1} \frac{y}{2} &=& - \frac{x^2}{2} +C \\
+     y &=&  2 \tan (C-x^2/2) 
+\end{eqnarray*}
+Now $y=2$ when $x=0$ gives $2=2 \tan C$, so $C=\pi/4$ and the general solution is
+$$
+   y =  2 \tan ( \pi/4 - x^2/2)
+$$
+\end{enumerate}
+\noindent\hrulefill
+
+}{}%
+
+\item\label{1189} Consider the second order reaction between species A and B,
+
+\begin{center}
+$\bA \> + \> \bB \quad \longrightarrow\quad$ {\bf Products}
+
+\end{center}
+
+with initial concentrations [A]$_0$ and [B]$_0$ respectively.
+
+	\begin{enumerate}
+	\item Give an argument to show that
+	[B]$\,=\,$ [B]$_0$ + [A]$\,-\,$[A]$_0$.
+	\item Solve the differential equation \[ \frac{\dif \mathrm{[A]}}{\dif t}\,=\, -k_2 \mathrm{[A][B]}\]
+	to obtain the result
+	\[\mathrm{[A]}\,=\,\frac{c\mathrm{[A]_0}\exp{(-ck_2\,t)}}{c\,+\,
+\mathrm{[A]_0}\,-\,\mathrm{[A]_0}\exp(-ck_2\,t)}\] where $c= \mathrm{[B]}_0\,-\,\mathrm{[A]_0}$.
+	\end{enumerate}
+
+
+\ifthenelse{\boolean{mynotes}}{
+\noindent\hrulefill
+
+{\bf Solution}
+\begin{enumerate}
+	\item In the reaction the same number of molecules of $\mathrm{[A]}$ and $\mathrm{[B]}$ combine to give the product so the change in the concentration of $\mathrm{[A]}$ is the same as the change in the concentration of $\mathrm{[B]}$, that is  $\mathrm{[B]}-\mathrm{[B]}_0=\mathrm{[A]}-\mathrm{[A]}_0$
+	\item Using $\mathrm{[B]} = c+ \mathrm{[A]}$ with $c=\mathrm{[B]}_0-\mathrm{[A]}_0$ we have
+\[ \frac{\dif \mathrm{[A]}}{\dif t}\,=\, -k_2 \mathrm{[A]}(c+ \mathrm{[A]})\]
+\end{enumerate}
+Solving we have
+\begin{eqnarray*}
+\int \frac{\mathrm{d}\mathrm{[A]}} { \mathrm{[A]}(c+ \mathrm{[A]})}&=& \int -k_2\, \mathrm{d}t \\
+\frac{1}{c}\int \frac{1}{\mathrm{[A]}} - \frac{1}{c+\mathrm{[A]}}  \, \mathrm{d}\mathrm{[A]} &=& -k_2t +C \\
+\ln \frac{\mathrm{[A]}}{c+\mathrm{[A]}} &=& -k_2 c t +C' \\
+\frac{\mathrm{[A]}}{c+\mathrm{[A]}} &=& C'' \mathrm{e}^{-k_2 c t} \\
+\mathrm{[A]}&=& \frac{cC'' \mathrm{e}^{-k_2 c t}}{1- C'' \mathrm{e}^{-k_2 c t}}
+\end{eqnarray*}
+where $C,C'$ and $C''$ are different constants. Now when $t=0$ $\mathrm{[A]}=\mathrm{[A]}_0$ so 
+\[
+\mathrm{[A]}_0 = \frac{cC''}{1-C''}
+\]
+but it is actually easier to go back to $C'$ and notice 
+\[
+\ln \frac{\mathrm{[A]}_0}{c+\mathrm{[A]}_0} = \ln \frac{\mathrm{[A]}_0}{\mathrm{[B]}_0} = C'
+\]
+and hence  $C'' = \mathrm{[A]}_0/\mathrm{[B]}_0$. Substituting in the generals solution and multiplying numerator and denomonator by $\mathrm{[B]}_0$ we obtain the desired  result.
+
+
+
+\noindent\hrulefill
+
+}{}%
+
+
+
+\item\label{q1193} 
+Solve the following linear ODEs by finding an  integrating factor:
+\begin{enumerate}
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y\,=\,\exp{(-x)}}$ ; \ \  $y=2\> \mathrm{when} \> x=0$.
+	\item  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,y \cos x\,=\,\cos{x}}$ ; \ \  $y=1\> \mathrm{when} \> x=0$.
+	\item\tough  $\displaystyle{ \frac{\dif y}{\dif x}\,+\,\frac{y}{x}\,=\,\sin{x}}$ ; \ \ $y=0\> \mathrm{when} \>x=0$.% (Changed -- it was $y=1$ but that did not work!)
+\end{enumerate}
+
+\ifthenelse{\boolean{mynotes}}{
+	{\bf Solution}
+	
+	\noindent\hrulefill
+	
+	\begin{enumerate}
+		\item $P=1,\, Q= \exp(-x)$. Integrating factor is $R = \exp(x)$.
+		\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( x y \right) = x \frac{\mathrm{d}y}{\mathrm{d}x}  +y = x \exp(-x)\]
+		and hence
+		\[ \exp(x) y = \int \exp(x) \exp(-x) \mathrm{d}x  =  x + C\]
+		so that
+		\[ y  = (x  +C) \exp(-x). \]
+		Substituting $y=2$ when $x=0$ gives
+		\[ 2 = C \]
+		hence $C=1$ and $y  = (x  + 2)\exp(-x)$.
+		
+		\item $P=\cos x,\, Q= \cos x$. Integrating factor is $R = \exp(\sin x)$.
+		\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( \mathrm{e}^{\sin x} y \right) = \mathrm{e}^{\sin x} \frac{\mathrm{d}y}{\mathrm{d}x}  + \cos x \mathrm{e}^{\sin x} y = \mathrm{e}^{\sin x} \cos x\]
+		and hence
+		\[ \mathrm{e}^{\sin x}  y = \int \mathrm{e}^{\sin x} \cos x \, \mathrm{d}x  = \mathrm{e}^{\sin x}  + C\]
+		so that
+		\[ y  = 1 + C \mathrm{e}^{-\sin x}. \]
+		Substituting $y=1$ when $x=0$ gives
+		\[ 1 = 1+C \]
+		hence $C=0$ and $y  = 1$.  In retrospect of course it was obvious $1$ is a solution.
+		
+		\item $P=1/ x,\, Q= \sin x$. Integrating factor is $R = \exp(\ln x)=x$.
+		\[ \frac{\mathrm{d}}{\mathrm{d}x}\left( x y \right) = x \frac{\mathrm{d}y}{\mathrm{d}x}  +  y = x \sin x\]
+		and hence
+		\[ x y = \int  x \sin x\, \mathrm{d}x  = \sin x-x \cos x  + C\]
+		so that
+		\[ y  = \frac{\sin x }{x} - \cos x +\frac{C}{x}. \]
+		Substituting $y=1$ when $x=0$ gives
+		\[ 1 = 1 -1 + C/0 \]
+		which is not defined so obviously I made a mistake in the initial conditions. Sorry!  I meant $x=0$, $y=0$ which is $C=0$. Note $(\sin x)/x$ tends to $1$ as $x$ goes to zero as $\sin x$ is approximately $x$ for small $x$.
+	\end{enumerate}
+	
+	
+	
+	\noindent\hrulefill
+}{}%
+
+\item Let $C$ be concentration of dissolved Oxygen in bioreactor and $C_s$ concentration of dissolved Oxygen at saturation, and $D=C_s-C$ the `deficit'. Let $L$ be the constant Biological Oxygen Demand of organisms in the reactor. The following differential equation is given as a model
+\[ \frac{\mathrm{d} D}{\mathrm{d}t} = k_d L  -k_r D\]
+where $k_d$ and $k_r$ are constants and $t$ is time.
+\begin{enumerate}
+	\item What does this equation mean?
+	\item Solve the differential equation, assuming $D=D_0$ at $t=0$
+	\item What shape is this curve?
+\end{enumerate}	
+
+\ifthenelse{\boolean{mynotes}}{
+	
+	{\bf Solution}
+	
+	\noindent\hrulefill
+	\begin{enumerate}
+		\item Something like: The rate of change of the oxygen deficit consist of the constant biological Oxygen demand and a reaction in which the oxygen concentration is increasing towards saturation. But you are the experts so I expect you can do better!
+		\item \[
+		D= C \mathrm{e}^{-k_r  t} +\frac{k_d}{k_r} L
+		\]
+		with $D=D_0$ at $t=0$ we see 
+		\[C= D_0 - \frac{k_d}{k_r} L\]
+		
+		\item Exponentially decreasing for $C>0$ (increasing for $C<0$)  towards steady state solution $k_d L/k_r$.
+	\end{enumerate}
+}{}%
+	
+
+\end{enumerate}
+\vfill\eject
+%%---------------------------------------------------------------------------------------
+
+
+%%---------------------------------------------------------------------------------------
+
+\end{document}
