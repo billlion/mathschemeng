@@ -1,0 +1,160 @@
+% CEASEXAM.STY
+% Document style option for producing CEAS exams.
+% Fully documented in MATHEXAM.TEX document.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% === Author:                                                          %
+%% Chris Paul, School of Mathematics (email: chris@maths.man.ac.uk)     %
+%                                                                      %
+% 02 Dec 2005: First version for the new University of Manchester      %
+% 12 Dec 2005: Moved \input{amsfonts.sty} to the template LaTeX file   %
+% 11 May 2006: Reworked the question numbering across sections         %
+%                                                                      %
+% Bill Lionheart                                                       %
+% 10 Nov 2007   Corrected name of University,Fixed numbering bug and   %
+%  included examiner name, fixed course code clipping in heading       %
+%                                                                      %
+% lines  44, 45 , 67, 68, 69 inactivated to remove lecturer's name     %
+% Peter Eccles 18 December 2009                                        %
+% 2016 Replaced PTO with Paper continues in line with CEAS style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\typeout{Document Option `ceasexam': 4 March 2011}
+
+% === Macros relating to front page.
+
+\def\coursecode#1{\gdef\@coursecode{#1}}
+\coursecode{Coursecode not specified} % Default
+
+\def\duration#1{\gdef\@duration{#1}}
+\duration{Duration not specified} % Default
+
+\def\information#1{\gdef\@information{#1}}
+\information{\ } % Default
+
+\def\@@coursename#1{\gdef\@coursename{\uppercase{#1}}}
+\def\coursename#1{\@@coursename{#1}}
+\coursename{Coursename not specified} % Default
+
+\def\examinationdate#1{\gdef\@examinationdate{#1}}
+\examinationdate{Examinationdate not specified} % Default
+
+\def\examinationtime#1{\gdef\@examinationtime{#1}}
+\examinationtime{Examinationtime not specified} % Default
+
+%\def\examiner#1{\gdef\@examiner{#1}}
+%\examiner{Examinationtime not specified} % Default
+
+
+\def\rubric#1{\gdef\@rubric{#1}}
+\rubric{Rubric not specified}
+
+\def\calculators#1{\gdef\@calculators{#1}}
+\calculators{Electronic calculators may be used, provided that they cannot store text.}
+
+% Redefine \maketitle, so that use of this style file is
+% similar to use of article.
+
+\def\maketitle{
+   \mbox{}\vspace{-3\baselineskip}
+   \begin{center}
+       \underline{\bf \@duration}\\[2\baselineskip]
+       \@information\\[3\baselineskip]
+       {\bf THE UNIVERSITY OF MANCHESTER}
+   \end{center}
+   \vspace{2\baselineskip}
+   {\@coursename}\\[0.2\baselineskip]
+   \vspace{0.5\baselineskip}
+   %\begin{center}
+   %Examiner: {\@examiner}
+   %\end{center}
+   \begin{center}
+       \@examinationdate\\[0.6\baselineskip]
+       \@examinationtime
+   \end{center}
+   \vspace{1.5\baselineskip}
+   \begin{center}
+   \@rubric
+   \end{center}
+   \vspace{2.5\baselineskip}
+   \hrule
+   \vspace{6mm}
+   \centerline{\@calculators}
+   \vspace{6mm}
+   \hrule
+} % end of \maketitle
+
+
+%% Some A4.STY stuff embedded within this style file for efficiency %%%%%%
+%% Took out stuff for 10pt and 11pt.
+%% Use of 10pt or 11pt as type size now produces an error.
+
+%% \topmargin -45truept % Nominal distance from top of paper to top of page
+% changed to -23 as -30 clips course code.
+\topmargin -23truept
+%% \textheight 685 pt   % Height of text (including footnotes and figures) (for 12pt)
+
+\textheight 670 pt
+
+\textwidth 180mm        % Custom "extra wide" A4 paper
+\oddsidemargin  -10mm   % Allow 15mm margin on both sides
+\evensidemargin -10mm   % Note that \oddsidemargin = \evensidemargin
+\marginparwidth 0.75 in
+
+\ifnum\@ptsize<2 \@latexerr
+{Should be using 12pt option, %
+ e.g.: \string\documentstyle[12pt,mathexam]{article}}\fi
+
+%%%%%%%
+
+% === Headers and Footers.
+% Headers and footers are the same for odd and even pages
+% Done by directly manipulating LaTeX internal macros
+
+\def\totalpages#1{\gdef\@totalpages{#1}}
+\totalpages{} % Initialize variable for use before .aux file exists
+\def\@oddhead{\hfil\@coursecode}%
+\def\@oddfoot{\if\thepage\@totalpages
+                 \hfil$\raise 4mm\hbox{\bf END OF EXAMINATION PAPER}\atop\hbox{\thepage\ of\ \@totalpages}$\hfil
+                 \else \hfil\hbox{\phantom{Paper Continues}\thepage\ of\ \@totalpages}\hfil Paper Continues\fi }
+
+% Define new command for questions producing A1, A2, ..., B1, B2, ... numbering scheme
+\newcounter{question}
+\newcommand\question{\addtocounter{question}{1}
+                     \vspace{\baselineskip}
+                     \par\noindent
+                     {\bf \@Alph\c@section\@arabic\c@question.\ }}
+\newcommand{\Endquestion}{\hfill{\bf (end of question \@Alph\c@section\@arabic\c@question)}}
+% Redefine the \section command so that sections start on new page
+% Reset question number counter so that we get B1, B2, ....
+\renewcommand\section{\addtocounter{section}{1}
+                      \newpage
+                      \mbox{}
+                      \\[-2.5\baselineskip]
+                      \centerline{\underline{\large\bf SECTION \@Alph\c@section}}\vspace{\baselineskip}}
+
+% Define new command that add correct text at the end of the paper
+% Also output total number of pages to the .aux file for use in footers
+\newcommand\finished{\immediate\write\@mainaux{\string\totalpages\string{\thepage\string}}}
+
+% Define command for adding extra commentary immediately at start of sections
+% Do NOT remove the \\[0mm] commands - they do actually do something!
+\def\sectionheader#1{\\[0mm]\noindent\centerline{#1}\\[0mm]}
+
+% Argument text is made bold and uppercase, and then underlined.
+\def\jazzy#1{\underline{\bf \uppercase{#1}}}
+
+% Define marks command so that if there is less than 30mm left on current line
+% place mark information on next line
+
+\renewcommand{\marks}[2][0mm]{\hspace{30mm}\mbox{}\vskip #1\hspace{-30mm}\hfill{\sf [#2 marks]}\\[-\baselineskip]}
+
+% Make exam part numbering correct  (a) then (i)
+
+\makeatletter
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\renewcommand{\p@enumii}{(\theenumi)}
+\makeatother
